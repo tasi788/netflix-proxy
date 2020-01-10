@@ -16,4 +16,4 @@ except IndexError:
 pwd = pbkdf2_sha256.hash(plaintext, rounds=200000, salt_size=16)
 logger.info(plaintext)
 logger.info(pwd)
-print(plaintext, pwd)
+print(pwd[-10:])
