@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-MAINTAINER anton@belodedenko.me
+LABEL maintainer="tdccc.com.tw tdc@tdccc.com.tw"
 
 RUN apk add --no-cache\
       sniproxy curl vim wget bash iputils bind-tools\

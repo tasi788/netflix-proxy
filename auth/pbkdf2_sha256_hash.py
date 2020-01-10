@@ -1,12 +1,19 @@
-#!/usr/bin/env python
-
+#!/usr/local/bin/python3
+import logging
+import coloredlogs
 import sys
 from passlib.hash import pbkdf2_sha256
-from passlib.utils import generate_password
+from passlib.pwd import genword
+
+logger = logging.getLogger(__name__)
+coloredlogs.install(level='INFO')
 
 try:
-  plaintext = sys.argv[1]
+    plaintext = sys.argv[1]
 except IndexError:
-  plaintext = generate_password()
+    plaintext = genword()
 
-print(plaintext, pbkdf2_sha256.encrypt(plaintext, rounds=200000, salt_size=16))
+pwd = pbkdf2_sha256.hash(plaintext, rounds=200000, salt_size=16)
+logger.info(plaintext)
+logger.info(pwd)
+print(plaintext, pwd)

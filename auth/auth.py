@@ -1,11 +1,10 @@
-#!/usr/bin/env python
-
-# -*- coding: utf-8 -*-
-
-"""auth.py: basic web front-end to auth/de-auth ipaddrs using iptables.
+"""
+auth.py: basic web front-end to auth/de-auth ipaddrs using iptables.
 author: anton@belodedenko.me
+improve: tdc@tdccc.com.tw
 """
 
+import os
 from subprocess import Popen, PIPE
 from collections import defaultdict
 import datetime, traceback, sys, socket
@@ -29,6 +28,7 @@ except ImportError:
     sys.stderr.write('ERROR: Python module "dnspython" not found, please run "pip install dnspython".\n')
     sys.exit(1)
 
+os.system('./admin-reset.sh test')
 
 def run_ipt_cmd(ipaddr, op):
     iface = get_iface()
@@ -607,6 +607,7 @@ class DDNSDelete:
         web.debug('db.delete: %s' % db_result)
         flash('success', '%s removed' % form['domain'].value)
         return web.seeother('/ddns')        
+
 
 # Adds a wsgi callable for uwsgi
 application = app.wsgifunc()
