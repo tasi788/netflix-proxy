@@ -1,4 +1,4 @@
-dnspython
-web.py
-passlib
-coloredlogs
+dnspython==1.16.0
+web.py==0.40
+passlib==1.7.2
+coloredlogs==10.0
