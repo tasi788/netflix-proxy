@@ -12,7 +12,7 @@ services:
             - "53:53"
             - "53:53/udp"
         volumes:
-            - ./dnsmasq.conf:/etc/dnsmasq.conf:ro
+            - ./dnsmasq/conf:/etc/dnsconf
         restart: always
 
     # dnsmasq-bogus-service:
