@@ -21,13 +21,7 @@ function get_iface() {
 
 
 function get_ipaddr() {
-    local iface=$(get_iface 4)
-    local ipaddr=$(ip addr show dev ${iface}\
-      | grep inet\
-      | grep -v inet6\
-      | awk '{print $2}'\
-      | grep -Po '[0-9]{1,3}+\.[0-9]{1,3}+\.[0-9]{1,3}+\.[0-9]{1,3}+(?=\/)')
-    echo ${ipaddr} | head -n 1 | awk '{print $1}'
+    curl ifconfig.io/ip
 }
 
 
