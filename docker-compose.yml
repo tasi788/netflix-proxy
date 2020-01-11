@@ -15,18 +15,18 @@ services:
             - ./dnsmasq/conf:/etc/dnsconf
         restart: always
 
-    # dnsmasq-bogus-service:
-    #     image: andyshinn/dnsmasq:latest
-    #     container_name: dnsmasq-bogus
-    #     privileged: true
-    #     network_mode: host
-    #     cap_add:
-    #         - NET_ADMIN
-    #     ports:
-    #         - "5353:5353"
-    #         - "5353:5353/udp"
-    #     command: --port=5353 --log-facility=- -A /#/${EXTIP} -A /#/${EXTIP6}
-    #     restart: always
+    dnsmasq-bogus-service:
+        image: andyshinn/dnsmasq:latest
+        container_name: dnsmasq-bogus
+        privileged: true
+        network_mode: host
+        cap_add:
+            - NET_ADMIN
+        ports:
+            - "5353:5353"
+            - "5353:5353/udp"
+        command: --port=5353 --log-facility=- -A /#/${EXTIP} -A /#/${EXTIP6}
+        restart: always
 
     caddy-service:
         image: abiosoft/caddy:latest
@@ -59,7 +59,7 @@ services:
     sniproxy-auth:
         build: ./auth
         container_name: sniproxy-auth
-        # network_mode: host
+        network_mode: host
         volumes: 
             - ./auth:/app
             - ./wwwroot/static:/app/static
