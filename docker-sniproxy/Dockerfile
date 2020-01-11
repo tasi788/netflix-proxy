@@ -13,6 +13,6 @@ WORKDIR /root
 
 ADD functions ./
 
-ADD run.sh ./
+# ADD run.sh ./
 
-CMD ./run.sh
+# CMD ./run.sh
