@@ -64,6 +64,3 @@ services:
             - ./auth:/app
             - ./wwwroot/static:/app/static
         restart: always
-        # debug 
-        ports:
-            - 8080:8080
