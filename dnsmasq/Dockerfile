@@ -4,7 +4,7 @@ WORKDIR /etc
 COPY . .
 
 FROM builder
-WORKDIR /etc
-RUN ./init.sh
+RUN /etc/init.sh
+
 EXPOSE 53 53/udp
-ENTRYPOINT ["dnsmasq", "-k"]
+CMD ["sh","run.sh"]]

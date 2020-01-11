@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 CWD=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 
 if [[ -f "${CWD}/proxy-domains.txt" ]] && [[ -f "${CWD}/dnsmasq.template.conf" ]] ; then
