@@ -7,4 +7,5 @@ RUN pip install -r requirements.txt
 
 FROM builder
 WORKDIR /app
+RUN cp /app/db/auth.default.db /app/db/auth.db
 CMD ["python", "auth.py"]
