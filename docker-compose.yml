@@ -27,18 +27,6 @@ services:
             - 5353:5353/udp
         command: --port=5353 --log-facility=- -A /#/${EXTIP} -A /#/${EXTIP6}
         restart: always
-
-    caddy-service:
-        image: abiosoft/caddy:latest
-        container_name: caddy
-        privileged: true
-        network_mode: host
-        cap_add:
-            - NET_ADMIN
-        volumes:
-            - ./Caddyfile:/etc/Caddyfile
-            - ./wwwroot:/srv
-        restart: always
     
     sniproxy-service:
         image: ab77/sniproxy:latest
@@ -53,23 +41,11 @@ services:
             - 80:80
             - 443:443
             - 9999:9999
-        dns:
-            - 8.8.8.8
-            - 8.8.4.4
+        # dns:
+        #     - 8.8.8.8
+        #     - 8.8.4.4
         volumes:
             - ./docker-sniproxy/sniproxy.conf:/etc/sniproxy.conf
             - ./openvpn:/openvpn
         # restart: always
     
-    # sniproxy-auth:
-    #     build: ./auth
-    #     container_name: sniproxy-auth
-    #     network_mode: host
-    #     volumes: 
-    #         - ./auth:/app
-    #         - ./wwwroot/static:/app/static
-    #         - /var/run/docker.sock:/var/run/docker.sock
-    #     restart: always
-    #     ports:
-    #         - 43867:43867
-    #         - 8080:8080
