@@ -1,0 +1,43 @@
+html {
+    background-color: #313d44;
+    font-family: 'Rubik'
+}
+
+#confirm {
+    text-align: center;
+    /* border: 1px white solid; */
+    margin-top: 10%;
+}
+
+#confirm h1 {
+    color: white;
+    font-size: 50px;
+}
+
+#confirm input {
+    font-size: 32px;
+    color: white;
+    text-align: center;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid white;
+}
+
+#confirm button {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-weight: bold;
+    /* background-color: #E76F51; */
+    color: white;
+    /* border: none */
+}
+
+.container {
+    background-color: #2A9D8F;
+    border-radius: 30px;
+    margin-top: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
+
+}
