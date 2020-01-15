@@ -14,5 +14,5 @@
 # }
 
 # showip
-openvpn --config /openvpn/default.ovpn &
+# openvpn --config /openvpn/default.ovpn
 $(which sniproxy) -c /etc/sniproxy.conf -f

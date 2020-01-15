@@ -8,3 +8,5 @@ ChromeProfile/
 venv*
 
 openvpn/
+
+dnsmasq/conf/dnsmasq.conf
