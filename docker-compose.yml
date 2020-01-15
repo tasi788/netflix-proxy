@@ -9,8 +9,8 @@ services:
         cap_add:
             - NET_ADMIN
         ports:
-            - "53:53"
-            - "53:53/udp"
+            - 53:53
+            - 53:53/udp
         volumes:
             - ./dnsmasq/conf:/etc/dnsconf
         restart: always
@@ -23,8 +23,8 @@ services:
         cap_add:
             - NET_ADMIN
         ports:
-            - "5353:5353"
-            - "5353:5353/udp"
+            - 5353:5353
+            - 5353:5353/udp
         command: --port=5353 --log-facility=- -A /#/${EXTIP} -A /#/${EXTIP6}
         restart: always
 
@@ -50,17 +50,26 @@ services:
         cap_add:
             - NET_ADMIN
         ports:
-            - "80:80"
-            - "443:443"
+            - 80:80
+            - 443:443
+            - 9999:9999
+        dns:
+            - 8.8.8.8
+            - 8.8.4.4
         volumes:
             - ./docker-sniproxy/sniproxy.conf:/etc/sniproxy.conf
+            - ./openvpn:/openvpn
         restart: always
     
-    sniproxy-auth:
-        build: ./auth
-        container_name: sniproxy-auth
-        network_mode: host
-        volumes: 
-            - ./auth:/app
-            - ./wwwroot/static:/app/static
-        restart: always
+    # sniproxy-auth:
+    #     build: ./auth
+    #     container_name: sniproxy-auth
+    #     network_mode: host
+    #     volumes: 
+    #         - ./auth:/app
+    #         - ./wwwroot/static:/app/static
+    #         - /var/run/docker.sock:/var/run/docker.sock
+    #     restart: always
+    #     ports:
+    #         - 43867:43867
+    #         - 8080:8080
