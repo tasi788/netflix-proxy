@@ -6,3 +6,5 @@ auth/db/auth.db
 id_rsa.travis
 ChromeProfile/
 venv*
+
+openvpn/
