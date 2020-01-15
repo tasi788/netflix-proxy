@@ -21,13 +21,12 @@ services:
         build:
             context: docker-sniproxy
         privileged: true
-        # network_mode: host
+        network_mode: host
         cap_add:
             - NET_ADMIN
-        ports:
-            - 80:80
-            - 443:443
-            - 9999:9999
+        # ports:
+        #     - 80:80
+        #     - 443:443
         dns:
             - 8.8.8.8
             - 8.8.4.4
