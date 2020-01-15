@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM python:alpine
 
 LABEL maintainer="tdccc.com.tw tdc@tdccc.com.tw"
 
@@ -7,7 +7,8 @@ RUN apk add --no-cache\
       iproute2 util-linux net-tools tcpdump mtr iftop\
       iperf iptables psmisc socat jq lsof ca-certificates\
       findutils sipcalc grep openntpd ip6tables openssl\
-      procps gawk coreutils libev udns libressl
+      procps gawk coreutils libev udns libressl openrc\
+      openvpn
 
 WORKDIR /root
 
