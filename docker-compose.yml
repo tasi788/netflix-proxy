@@ -59,7 +59,7 @@ services:
         volumes:
             - ./docker-sniproxy/sniproxy.conf:/etc/sniproxy.conf
             - ./openvpn:/openvpn
-        restart: always
+        # restart: always
     
     # sniproxy-auth:
     #     build: ./auth
